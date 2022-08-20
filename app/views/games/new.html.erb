@@ -1,0 +1,20 @@
+ <div class="container m-3">
+  <h2 class="form-prefix">Make a word with these letters:</h2>
+  <ul>
+    <%@letters.each do |letter|%>
+    <li class="btn btn-light">
+      <%=letter%>
+    </li>
+    <%end%>
+  </ul>
+
+
+  <form action="/score" method="post" data-turbo="false">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <div class="input-group">
+      <input type="text" name="user_answer" placeholder = "Type your try here" class="form-control">
+      <input type="submit" value="Send" class="btn btn-primary">
+    </div>
+  </form>
+</div>
