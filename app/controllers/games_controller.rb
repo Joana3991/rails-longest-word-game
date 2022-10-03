@@ -7,7 +7,11 @@ class GamesController < ApplicationController
   end
 
   def new
-    @letters = (1..10).map { rand(65..90).chr }
+    vowels = %w(A E I O U Y)
+    @letters = Array.new(5) { vowels.sample }
+    @letters += Array.new(5) { (('A'..'Z').to_a - vowels).sample }
+    @letters.shuffle!
+    # @letters = (1..10).map { rand(65..90).chr }
   end
 
   def score
