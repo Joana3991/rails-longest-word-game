@@ -6,6 +6,9 @@ class GamesController < ApplicationController
   def home
   end
 
+  def rules
+  end
+
   def new
     vowels = %w(A E I O U Y)
     @letters = Array.new(5) { vowels.sample }
